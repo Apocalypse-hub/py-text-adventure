@@ -20,11 +20,10 @@ def boot_sequence() -> None:
     print(".")
     print("Welcome to the Everyday General-purpose Operating System (or egOS for short)!\n(not to be confused with everyday genuine pieces of sh*t)\n\nEnter command below, type 'help' for available commands, or press ctrl+c to exit.\n")
 
-def handle(str) -> callable:
-    if str not in COMMAND_FUNC_MAP:
+def handle(command) -> callable:
+    if command not in COMMAND_FUNC_MAP:
         return do_nothing
-    return COMMAND_FUNC_MAP[str]
-
+    return COMMAND_FUNC_MAP[command]
 
 def do_nothing():
     print("invalid command, you might ask for 'help' :)")
